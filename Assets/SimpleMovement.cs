@@ -31,7 +31,7 @@ public class SimpleMovement : MonoBehaviour
         CharacterController controller = GetComponent<CharacterController>();
 
         float v = Input.GetAxis("Vertical");
-
+        //speed for movement
         anim.SetFloat("Walk", v);
 
         transform.Rotate(0, Input.GetAxis("Horizontal") * RotateSpeed, 0);
@@ -40,6 +40,7 @@ public class SimpleMovement : MonoBehaviour
         float curSpeed = Speed * v;
         controller.SimpleMove(forward * curSpeed);
 
+        //switch between walking and running
         if(Input.GetButtonDown("Fire1"))
         {
             if (!running)
@@ -57,13 +58,23 @@ public class SimpleMovement : MonoBehaviour
                 Speed = walkSpeed;
             }
         }
-
+        //keep switch speed back if it was reset for backwards
         if (running && Input.GetKey(KeyCode.W))
             Speed = runSpeed;
-
+        //don't run backwards
         if (Input.GetKey(KeyCode.S))
         {
             Speed = walkSpeed;
         }
+
+        if (Input.GetKey(KeyCode.A))
+            anim.SetTrigger("LeftTurn");
+        if (Input.GetKey(KeyCode.D))
+            anim.SetTrigger("RightTurn");
+
+
+        if (Input.GetButtonDown("Jump"))
+            anim.SetTrigger("Jump");
+
     }
 }
