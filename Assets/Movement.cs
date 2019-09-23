@@ -7,6 +7,9 @@ public class Movement : MonoBehaviour
 
     private Animator anim;
 
+    public float MaxSpeed = 3;
+    public float RotateSpeed = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,5 +32,16 @@ public class Movement : MonoBehaviour
     {
         anim.SetFloat("VelX", x);
         anim.SetFloat("VelY", y);
+
+        //transform.position += Vector3.forward * MaxSpeed * y * Time.deltaTime;
+        CharacterController controller = GetComponent<CharacterController>();
+        Vector3 forward = transform.TransformDirection(Vector3.forward);
+
+        float curSpeed = MaxSpeed * y;
+        controller.SimpleMove(forward * curSpeed);
+        transform.Rotate(0, x * RotateSpeed, 0);
+
+        anim.SetFloat("AngSpeed", x * RotateSpeed);
+
     }
 }
