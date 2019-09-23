@@ -950,6 +950,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 0.5
   RotateSpeed: 0.8
+  runSpeed: 8
+  walkSpeed: 1.5
 --- !u!143 &943183955
 CharacterController:
   m_ObjectHideFlags: 0
@@ -975,7 +977,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 943183949}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fcd0084a14b1c747bd8b1925ea5039f, type: 3}
   m_Name: 
@@ -987,7 +989,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 943183949}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c07e8743ba95f549a2094dd134156d1, type: 3}
   m_Name: 
