@@ -7,11 +7,11 @@ using UnityEngine;
 public class SimpleMovement : MonoBehaviour
 {
 
-    public float Speed = 1.5f;
+    public float Speed = 3f;
     public float RotateSpeed;
     Animator anim;
-    public float runSpeed = 8.0f;
-    public float walkSpeed = 1.5f;
+    public float runSpeed = 6.0f;
+    public float walkSpeed = 3f;
     private bool running = false;
 
     int runHash = Animator.StringToHash("Running");
@@ -22,7 +22,6 @@ public class SimpleMovement : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        anim.SetTrigger(walkHash);
     }
 
     // Update is called once per frame
