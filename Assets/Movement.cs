@@ -6,14 +6,17 @@ public class Movement : MonoBehaviour
 {
 
     private Animator anim;
+    private Rigidbody rb;
 
     public float MaxSpeed = 3;
     public float RotateSpeed = 1;
+    public float JumpSpeed = 2;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -26,6 +29,14 @@ public class Movement : MonoBehaviour
         var y = Input.GetAxis("Vertical");
 
         Move(x, y);
+
+        if (Input.GetButtonDown("Jump")/*&& transform.position.y < 0.5f*/)
+        {
+            anim.SetTrigger("Jump");
+            //Vector3 jump = new Vector3(0.0f, JumpHeight, 0.0f);
+
+            rb.AddForce(Vector3.up * JumpSpeed);
+        }
     }
 
     private void Move(float x, float y)
