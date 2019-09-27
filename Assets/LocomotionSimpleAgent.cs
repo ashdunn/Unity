@@ -20,7 +20,7 @@ public class LocomotionSimpleAgent : MonoBehaviour
         // Don’t update position automatically
         agent.updatePosition = false;
 
-        agent.autoTraverseOffMeshLink = false;
+        //agent.autoTraverseOffMeshLink = false;
     }
 
     void Update()
