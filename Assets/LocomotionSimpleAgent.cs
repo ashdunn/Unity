@@ -48,8 +48,8 @@ public class LocomotionSimpleAgent : MonoBehaviour
                 lookAt.lookAtTargetPosition = agent.steeringTarget + transform.forward;
         }
 
-        //if (worldDeltaPosition.magnitude > agent.radius)
-          //  transform.position = agent.nextPosition - 0.9f * worldDeltaPosition;
+        if (worldDeltaPosition.magnitude > agent.radius)
+            transform.position = agent.nextPosition - 0.9f * worldDeltaPosition;
     }
 
     void OnAnimatorMove()
