@@ -23,9 +23,16 @@ public class ClickToMoveBasic : MonoBehaviour
             {
                 if (Vector3.Distance(hitInfo.point, agent.destination) < .5)
                 {
-                    print("kslfjslfjs");
-                    anim.SetBool("run", true);
-                    agent.speed = 5;
+                    if (anim.GetBool("run"))
+                    {
+                        anim.SetBool("run", false);
+                        agent.speed = 2;
+                    }
+                    else
+                    {
+                        anim.SetBool("run", true);
+                        agent.speed = 5;
+                    }
                 }
                 else
                 {

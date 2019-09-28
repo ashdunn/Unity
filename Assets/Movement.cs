@@ -18,12 +18,17 @@ public class Movement : MonoBehaviour
     int nrOfAlowedDJumps = 1; // New vairable
     int dJumpCounter = 0;
 
+    bool canJump = false;
+
+    public float timer;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         controller = GetComponent<CharacterController>();
+        timer = 0;
     }
 
     // Update is called once per frame
@@ -48,25 +53,28 @@ public class Movement : MonoBehaviour
             transform.TransformDirection(Vector3.forward);
         transform.Rotate(0, x * RotateSpeed, 0);
 
-        if (Input.GetButtonDown("Jump"))
+        /*
+        if (timer > 0.1f)
         {
-            if (controller.isGrounded)
-            {
-                moveDirection.y = JumpSpeed;
-                dJumpCounter = 0;
-                //anim.SetFloat("Jump4Blend", 0);
-                print("fijsfjsldkjfl");
-            }
-            if (!controller.isGrounded && dJumpCounter < nrOfAlowedDJumps)
-            {
-                moveDirection.y = JumpSpeed;
-                dJumpCounter++;
-                anim.SetFloat("Jump4Blend", 1);
-            }
-            
+            timer = 0;
+            canJump = false;
+            anim.SetFloat("Jump4Blend", 0);
         }
-        else
-           anim.SetFloat("Jump4Blend", 0);
+
+        if (Input.GetButtonDown("Jump") && rb.position.y < .2)
+        {
+            moveDirection.y = JumpSpeed * Time.deltaTime;
+            anim.SetFloat("Jump4Blend", 1);
+            rb.AddForce(0, 10000, 0);
+            timer = 0;
+            canJump = true;
+        }
+        else if(timer < 0.1f)
+        {
+            timer += Time.deltaTime;
+            rb.AddForce(0, 10000, 0);
+        }*/
+           
         moveDirection.y -= 20.0f * Time.deltaTime;
 
 

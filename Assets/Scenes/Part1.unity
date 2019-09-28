@@ -233,6 +233,7 @@ MonoBehaviour:
   MoveSpeed: 3
   RotateSpeed: 1
   JumpSpeed: 2
+  timer: 0
 --- !u!143 &540560397
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1180,7 +1181,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1.81
-  m_Radius: 0.76
+  m_Radius: 0.34
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -1225,6 +1226,7 @@ MonoBehaviour:
   MoveSpeed: 3
   RotateSpeed: 1
   JumpSpeed: 2
+  timer: 0
 --- !u!1 &1114093932
 GameObject:
   m_ObjectHideFlags: 0

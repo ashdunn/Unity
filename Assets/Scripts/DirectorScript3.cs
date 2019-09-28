@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DirectorScript : MonoBehaviour
+public class DirectorScript3 : MonoBehaviour
 {
 
     private GameObject selected;
@@ -37,9 +37,9 @@ public class DirectorScript : MonoBehaviour
                 if (hit.transform.tag == "Agent")
                 {
                     if (selected != null)
-                        selected.GetComponent<ClickToMove>().Deselect();
+                        selected.GetComponent<ClickToMove3>().Deselect();
                     selected = hit.transform.gameObject;
-                    selected.GetComponent<ClickToMove>().Select();
+                    selected.GetComponent<ClickToMove3>().Select();
                     print("fksdljfkdsjflkjlkfsjdklfjsdkfljsklfjdskldj");
                 }
 
@@ -58,7 +58,7 @@ public class DirectorScript : MonoBehaviour
                 else if (selected != null)
                 {
 
-                    selected.GetComponent<ClickToMove>().Destination(hit.transform.gameObject.GetComponent<Collider>().ClosestPointOnBounds(hit.point));
+                    selected.GetComponent<ClickToMove3>().Destination(hit.transform.gameObject.GetComponent<Collider>().ClosestPointOnBounds(hit.point));
                 }
             }
 
